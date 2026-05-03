@@ -1,0 +1,432 @@
+/* ============================================================
+   VoteWise — Voting Reality Scanner
+   Main Stylesheet
+   ============================================================ */
+
+/* ---------- Design Tokens ---------- */
+:root {
+    --bg: #f1f5f9;
+    --card-bg: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --green: #059669;
+    --green-light: #d1fae5;
+    --red: #dc2626;
+    --red-light: #fee2e2;
+    --orange: #d97706;
+    --orange-light: #fef3c7;
+    --border: #cbd5e1;
+    --error-bg: #fff1f2;
+    --error-border: #fca5a5;
+    --error-text: #991b1b;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg);
+    margin: 0;
+    padding: 2rem 1rem;
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* ---------- Card ---------- */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+    padding: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ---------- Typography ---------- */
+h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+    color: var(--text-main);
+}
+
+p.subtitle {
+    color: var(--text-muted);
+    margin: 0 0 2rem 0;
+    text-align: center;
+}
+
+/* ---------- Form Elements ---------- */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+select,
+input[type="number"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: white;
+    color: var(--text-main);
+    transition: border-color 0.15s;
+}
+
+select:focus,
+input[type="number"]:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-color: var(--primary);
+}
+
+.radio-group {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0.75rem 0;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.radio-label input[type="radio"] {
+    width: 1.1rem;
+    height: 1.1rem;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+/* ---------- Primary Button ---------- */
+button.primary {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    margin-top: 1rem;
+}
+
+button.primary:hover {
+    background-color: var(--primary-hover);
+}
+
+button.primary:active {
+    transform: scale(0.99);
+}
+
+button.primary:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 3px;
+}
+
+/* ---------- Error Alert ---------- */
+.error-alert {
+    background-color: var(--error-bg);
+    border: 1px solid var(--error-border);
+    color: var(--error-text);
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ---------- Dashboard: Verdict ---------- */
+.verdict {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.verdict.green { color: var(--green); }
+.verdict.red   { color: var(--red); }
+.verdict.orange { color: var(--orange); }
+
+/* ---------- Dashboard: Tag ---------- */
+.tag-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.tag {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* Improved contrast ratios for WCAG AA */
+.tag-green  { background-color: var(--green-light);  color: #064e3b; }
+.tag-red    { background-color: var(--red-light);    color: #7f1d1d; }
+.tag-orange { background-color: var(--orange-light); color: #78350f; }
+
+/* ---------- Section Title ---------- */
+.section-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+}
+
+/* ---------- Reason List ---------- */
+.reason-list {
+    margin: 0 0 2rem 0;
+    padding-left: 1.5rem;
+    color: var(--text-main);
+    font-size: 1.05rem;
+}
+
+.reason-list li {
+    margin-bottom: 0.6rem;
+}
+
+/* ---------- Timeline Simulation ---------- */
+.timeline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin: 2rem 0 3rem 0;
+    padding: 0 1rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 2rem;
+    right: 2rem;
+    height: 4px;
+    background-color: var(--border);
+    z-index: 0;
+    transform: translateY(-50%);
+}
+
+.timeline.mismatch::before {
+    background: linear-gradient(to right, var(--border) 55%, var(--red) 55%);
+}
+
+.point {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.point .dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--text-muted);
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px var(--text-muted);
+}
+
+.point.today .dot    { background-color: var(--primary); box-shadow: 0 0 0 2px var(--primary); }
+.point.election .dot { background-color: var(--orange);  box-shadow: 0 0 0 2px var(--orange); }
+.point.reg .dot      { background-color: var(--green);   box-shadow: 0 0 0 2px var(--green); }
+.point.reg.miss .dot { background-color: var(--red);     box-shadow: 0 0 0 2px var(--red); }
+
+.point .label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    position: absolute;
+    top: 26px;
+    white-space: nowrap;
+}
+
+/* ---------- Impact Panel ---------- */
+.impact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.impact-box {
+    padding: 1.25rem;
+    border-radius: 12px;
+}
+
+.impact-nothing { background-color: var(--red-light);   border: 1px solid #fca5a5; }
+.impact-act     { background-color: var(--green-light); border: 1px solid #6ee7b7; }
+
+.impact-title {
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.impact-nothing .impact-title { color: #7f1d1d; }
+.impact-act .impact-title     { color: #064e3b; }
+
+.impact-text { margin: 0; font-size: 0.95rem; }
+
+/* ---------- Area Info ---------- */
+.area-info {
+    background-color: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border);
+}
+
+.area-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.area-item { margin: 0; }
+
+.area-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.2rem;
+}
+
+.area-value {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+/* ---------- Reality Gap ---------- */
+.reality-gap {
+    border: 2px dashed var(--red);
+    padding: 1.5rem;
+    border-radius: 12px;
+    background-color: #fff1f2;
+    margin-bottom: 2rem;
+}
+
+.gap-title {
+    color: #b91c1c;
+    font-weight: 800;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.gap-text {
+    margin: 0;
+    color: #7f1d1d;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+/* ---------- Action Links ---------- */
+.btn-restart {
+    display: block;
+    text-align: center;
+    color: var(--text-muted);
+    text-decoration: underline;
+    margin-top: 1.5rem;
+    font-weight: 600;
+}
+
+.btn-restart:hover,
+.btn-restart:focus-visible {
+    color: var(--primary);
+}
+
+.action-link {
+    display: block;
+    text-align: center;
+    background-color: var(--primary);
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    transition: background-color 0.2s;
+}
+
+.action-link:hover { background-color: var(--primary-hover); }
+.action-link:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 3px;
+}
+
+/* ---------- Gap Warning ---------- */
+.gap-warning {
+    color: var(--red);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    background-color: var(--red-light);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #fca5a5;
+}
+
+/* ---------- Gemini Badge ---------- */
+.ai-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: #f1f5f9;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.2rem 0.65rem;
+    margin-bottom: 1rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+    body { padding: 1rem 0.75rem; }
+    .card { padding: 1.5rem; }
+    .impact-grid { grid-template-columns: 1fr; }
+    .area-grid   { grid-template-columns: 1fr; }
+}
